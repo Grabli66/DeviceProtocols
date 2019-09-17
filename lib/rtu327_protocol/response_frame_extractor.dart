@@ -1,31 +1,29 @@
 import 'package:binary_data/binary_data_lib.dart';
+import 'package:device_protocols/common/binary_packet_extractor.dart';
 import 'package:device_protocols/common/exceptions.dart';
 import 'package:device_protocols/rtu327_protocol/crc_helper.dart';
 import 'package:device_protocols/rtu327_protocol/frame.dart';
 import 'package:device_protocols/rtu327_protocol/response_frame.dart';
 
 /// Извлекает ResponseFrame из массива байт
-class ResponseFrameUnpacker {
-  /// Буффер для данных
-  final BinaryStreamReader _reader;
-
+class ResponseFrameExtractor extends BinaryPacketExtractor {
   /// Конструктор
-  ResponseFrameUnpacker(this._reader);
+  ResponseFrameExtractor(BinaryStreamReader reader) : super(reader);
 
   /// Читает фрэйм с ответом
   Future<ResponseFrame> read() async {
     /// Читает пока не найдёт начальный символ
-    while (await _reader.readUInt8() != Frame.START_BYTE) {}
+    while (await reader.readUInt8() != Frame.START_BYTE) {}
 
     // Длина только данных фрейма
-    final len = await _reader.readUInt16() - ResponseFrame.LengthWithoutData;
-    final frameId = await _reader.readUInt8();
+    final len = await reader.readUInt16() - ResponseFrame.LengthWithoutData;
+    final frameId = await reader.readUInt8();
     // Пропускает резерв
-    await _reader.readUInt32();
-    await _reader.readUInt16();
-    final code = await _reader.readUInt8();
-    final data = await _reader.readList(len);
-    final packCrc = await _reader.readUInt16();
+    await reader.readUInt32();
+    await reader.readUInt16();
+    final code = await reader.readUInt8();
+    final data = await reader.readList(len);
+    final packCrc = await reader.readUInt16();
 
     // Сравнивает CRC
     final crcPack = BinaryData();

@@ -1,5 +1,5 @@
 import 'package:binary_data/binary_data_lib.dart';
-import 'package:device_protocols/rtu327_protocol/response_frame_unpacker.dart';
+import 'package:device_protocols/rtu327_protocol/response_frame_extractor.dart';
 
 void main(List<String> args) async {
   final bin = BinaryData.fromList([
@@ -29,7 +29,7 @@ void main(List<String> args) async {
   }
 
   final sr = BinaryStreamReader(Stream<int>.fromIterable(allData));
-  final unpacker = ResponseFrameUnpacker(sr);
+  final unpacker = ResponseFrameExtractor(sr);
   final sw = Stopwatch();
   sw.start();
   for (var i = 0; i < 1000000; i++) {
