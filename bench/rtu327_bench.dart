@@ -1,5 +1,5 @@
 import 'package:binary_data/binary_data_lib.dart';
-import 'package:device_protocols/rtu327_protocol/response_frame_extractor.dart';
+import 'package:device_protocols/transport_protocols/rtu327_protocol/response_frame_extractor.dart';
 
 void main(List<String> args) async {
   final bin = BinaryData.fromList([

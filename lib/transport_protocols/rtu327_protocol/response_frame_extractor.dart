@@ -1,9 +1,10 @@
 import 'package:binary_data/binary_data_lib.dart';
 import 'package:device_protocols/common/binary_packet_extractor.dart';
 import 'package:device_protocols/common/exceptions.dart';
-import 'package:device_protocols/rtu327_protocol/crc_helper.dart';
-import 'package:device_protocols/rtu327_protocol/frame.dart';
-import 'package:device_protocols/rtu327_protocol/response_frame.dart';
+import 'package:device_protocols/transport_protocols/rtu327_protocol/crc_helper.dart';
+import 'package:device_protocols/transport_protocols/rtu327_protocol/frame.dart';
+import 'package:device_protocols/transport_protocols/rtu327_protocol/response_frame.dart';
+
 
 /// Извлекает ResponseFrame из массива байт
 class ResponseFrameExtractor extends BinaryPacketExtractor {

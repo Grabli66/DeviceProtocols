@@ -1,5 +1,5 @@
 import 'package:binary_data/binary_data_lib.dart';
-import 'package:device_protocols/rtu327_protocol/responses/response.dart';
+import 'package:device_protocols/applied_protocols/rtu327_protocol/responses/response.dart';
 
 /// Ответ на запрос времени
 class GetTimeResponse extends Response {
@@ -21,5 +21,5 @@ class GetTimeResponse extends Response {
     final epochSeconds = dateTime.millisecondsSinceEpoch / 1000;
     res.writeUInt32(epochSeconds.round());
     return res;
-  }  
+  }
 }

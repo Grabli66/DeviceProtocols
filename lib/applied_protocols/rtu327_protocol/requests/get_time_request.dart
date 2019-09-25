@@ -1,4 +1,4 @@
-import 'package:device_protocols/rtu327_protocol/requests/request.dart';
+import 'package:device_protocols/applied_protocols/rtu327_protocol/requests/request.dart';
 
 /// Запрос времени УСПД
 class GetTimeRequest extends Request {

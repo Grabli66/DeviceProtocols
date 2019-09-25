@@ -1,7 +1,6 @@
 import 'package:binary_data/binary_data_lib.dart';
-import 'package:device_protocols/rtu327_protocol/crc_helper.dart';
-import 'package:device_protocols/rtu327_protocol/frame.dart';
-import 'package:device_protocols/rtu327_protocol/responses/response.dart';
+import 'package:device_protocols/transport_protocols/rtu327_protocol/crc_helper.dart';
+import 'package:device_protocols/transport_protocols/rtu327_protocol/frame.dart';
 
 /// Фрэйм ответа
 class ResponseFrame extends Frame {
@@ -16,11 +15,6 @@ class ResponseFrame extends Frame {
 
   /// Конструктор
   ResponseFrame(int frameId, this.code, [this.response]) : super(frameId);
-
-  /// Конструктор
-  ResponseFrame.fromResponse(int frameId, this.code, Response response)
-      : this.response = response.toBytes(),
-        super(frameId);
 
   // Преобразует пакет в байты
   @override
