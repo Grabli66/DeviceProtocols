@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:binary_data/binary_data_lib.dart';
 import 'package:device_protocols/applied_protocols/rtu327_protocol/responses/response.dart';
 
@@ -10,8 +12,9 @@ class GetTimeResponse extends Response {
   GetTimeResponse(this.dateTime);
 
   /// Создаёт ответ из байт
-  factory GetTimeResponse.fromBytes(BinaryData binary) {
-    return GetTimeResponse(DateTime.now());
+  factory GetTimeResponse.fromBytes(Uint8List data) {
+    final dateTime = BinaryData.fromList(data).readUnixStampSeconds();
+    return GetTimeResponse(dateTime);
   }
 
   /// Конвертирует в байты
