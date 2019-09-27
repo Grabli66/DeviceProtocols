@@ -1,6 +1,6 @@
 import 'package:binary_data/binary_data_lib.dart';
-import 'package:device_protocols/transport_protocols/rtu327_protocol/crc_helper.dart';
-import 'package:device_protocols/transport_protocols/rtu327_protocol/frame.dart';
+import 'package:device_protocols/channel_protocols/rtu327_protocol/crc_helper.dart';
+import 'package:device_protocols/channel_protocols/rtu327_protocol/frame.dart';
 
 /// Фрэйм ответа
 class ResponseFrame extends Frame {

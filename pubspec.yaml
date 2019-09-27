@@ -8,7 +8,8 @@ environment:
 
 dependencies:
   binary_data:
-    git: "https://github.com/Grabli66/BinaryData"
+    #git: "https://github.com/Grabli66/BinaryData"
+    path: ../BinaryData
 
 dev_dependencies:
   pedantic: ^1.7.0

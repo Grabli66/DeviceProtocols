@@ -1,7 +1,7 @@
 import 'package:binary_data/binary_data_lib.dart';
+import 'package:device_protocols/channel_protocols/iec1107_protocol/crc_helper.dart';
+import 'package:device_protocols/channel_protocols/iec1107_protocol/special_bytes.dart';
 import 'package:device_protocols/common/binary_packet.dart';
-import 'package:device_protocols/transport_protocols/iec1107_protocol/crc_helper.dart';
-import 'package:device_protocols/transport_protocols/iec1107_protocol/special_bytes.dart';
 
 /// Запрос программирования
 class ProgrammRequest extends BinaryPacket {

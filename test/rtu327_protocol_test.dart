@@ -1,19 +1,19 @@
 import 'package:binary_data/binary_data_lib.dart';
 import 'package:device_protocols/applied_protocols/rtu327_protocol/requests/get_time_request.dart';
 import 'package:device_protocols/applied_protocols/rtu327_protocol/responses/get_time_response.dart';
-import 'package:device_protocols/rtu327_protocol/response_code.dart';
-import 'package:device_protocols/transport_protocols/rtu327_protocol/request_frame.dart';
-import 'package:device_protocols/transport_protocols/rtu327_protocol/response_frame.dart';
-import 'package:device_protocols/transport_protocols/rtu327_protocol/response_frame_extractor.dart';
-import 'package:device_protocols/transport_protocols/rtu327_protocol/rtu327_password.dart';
+import 'package:device_protocols/channel_protocols/rtu327_protocol/request_frame.dart';
+import 'package:device_protocols/channel_protocols/rtu327_protocol/response_code.dart';
+import 'package:device_protocols/channel_protocols/rtu327_protocol/response_frame.dart';
+import 'package:device_protocols/channel_protocols/rtu327_protocol/response_frame_extractor.dart';
+import 'package:device_protocols/channel_protocols/rtu327_protocol/rtu327_password.dart';
 import 'package:test/test.dart';
 
-void main() {
+void testRtu327Protocol() {
   group('Rtu327 tests', () {
     group('Request tests', () {
       test('GetTimeRequest', () {
-        final frame =
-            RequestFrame(11, Rtu327Password("0001"), GetTimeRequest().toBytes());
+        final frame = RequestFrame(
+            11, Rtu327Password("0001"), GetTimeRequest().toBytes());
         expect(
             frame.toBytes().toHex(), "02_00_09_0b_30_30_30_31_00_00_72_21_e8");
       });
@@ -31,4 +31,8 @@ void main() {
       });
     });
   });
+}
+
+void main() {
+  testRtu327Protocol();
 }

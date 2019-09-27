@@ -1,7 +1,7 @@
 import 'package:binary_data/binary_data_lib.dart';
-import 'package:device_protocols/transport_protocols/rtu327_protocol/crc_helper.dart';
-import 'package:device_protocols/transport_protocols/rtu327_protocol/frame.dart';
-import 'package:device_protocols/transport_protocols/rtu327_protocol/rtu327_password.dart';
+import 'package:device_protocols/channel_protocols/rtu327_protocol/crc_helper.dart';
+import 'package:device_protocols/channel_protocols/rtu327_protocol/frame.dart';
+import 'package:device_protocols/channel_protocols/rtu327_protocol/rtu327_password.dart';
 
 class RequestFrame extends Frame {
   /// Пароль RTU сервера STR<4>
@@ -11,7 +11,7 @@ class RequestFrame extends Frame {
   final BinaryData request;
 
   /// Конструктор
-  const RequestFrame(int frameId, this.password, this.request) : super(frameId);
+  RequestFrame(int frameId, this.password, this.request) : super(frameId);
 
   /// Конвертирует в байты
   BinaryData toBytes() {
