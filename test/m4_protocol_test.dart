@@ -28,12 +28,19 @@ void testM4Protocol() {
         final long = M4LongFrame(
             0xFF, 0x0C, Uint8List.fromList([0x52, 0xF6, 0x00, 0x03, 0x00]));
 
-        binary.writeList(long.toBytes().toList());
+        binary.writeBinaryData(long.toBytes());
 
         final short = M4ShortFrame(0xFF, Uint8List.fromList([1, 2, 3, 4, 5]));
-        binary.writeList(short.toBytes().toList());
+        binary.writeBinaryData(short.toBytes());
 
-        final stream = Stream.fromIterable(binary.toList());
+        final data = binary.toList();
+        final controller = StreamController<Object>();
+        
+        Future.delayed(Duration(seconds: 1), () {
+          controller.add(data);
+        });
+
+        final stream = controller.stream;
         final extractor =
             M4FrameExtractor(BinaryStreamReader(stream));
         

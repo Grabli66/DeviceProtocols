@@ -4,7 +4,7 @@ import 'package:device_protocols/common/binary_channel_frame.dart';
 /// Базовый канальный пакет протокола M4
 abstract class M4Frame extends BinaryChannelFrame {
   // Начальный байт
-  static const int StartByte = 0x02;
+  static const int StartByte = 0x10;
 
   /// Сетевой номер
   final int networkAddress;
