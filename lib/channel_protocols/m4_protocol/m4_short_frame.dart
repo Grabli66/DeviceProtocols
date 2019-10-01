@@ -9,11 +9,9 @@ class M4ShortFrame extends M4Frame {
   /// Конечный байт сообщения
   static const EndByte = 0x16;
 
-  /// Тело сообщения
-  final Uint8List body;
-
   /// Конструктор
-  M4ShortFrame(int networkAddress, this.body) : super(networkAddress);
+  M4ShortFrame(int networkAddress, Uint8List body)
+      : super(networkAddress, body);
 
   /// Преобразует пакет в байты
   @override

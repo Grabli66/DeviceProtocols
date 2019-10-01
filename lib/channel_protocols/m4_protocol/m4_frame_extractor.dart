@@ -4,18 +4,18 @@ import 'package:binary_data/binary_data_lib.dart';
 import 'package:device_protocols/channel_protocols/m4_protocol/m4_frame.dart';
 import 'package:device_protocols/channel_protocols/m4_protocol/m4_long_frame.dart';
 import 'package:device_protocols/channel_protocols/m4_protocol/m4_short_frame.dart';
-import 'package:device_protocols/common/binary_packet_extractor.dart';
+import 'package:device_protocols/common/channel_binary_packet_extractor.dart';
 
 /// Извлекает канальный пакет протокола M4
-class M4FrameExtractor extends BinaryPacketExtractor {
+class M4FrameExtractor extends ChannelBinaryPacketExtractor<M4Frame> {
   /// Конструктор
   M4FrameExtractor(BinaryStreamReader reader) : super(reader);
 
   /// Читает пакет из потока
-  Future<M4Frame> read() async {    
+  Future<M4Frame> read() async {
     /// Читает пока не найдёт начальный символ
     while (await reader.readUInt8() != M4Frame.StartByte) {}
-        
+    
     final network = await reader.readUInt8();    
     final frameType = await reader.readUInt8();
     

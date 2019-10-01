@@ -15,12 +15,9 @@ class M4LongFrame extends M4Frame {
   /// Идентификатор пакета
   final int packetId;
 
-  /// Тело сообщения
-  final Uint8List body;
-
   /// Конструктор
-  M4LongFrame(int networkAddress, this.packetId, this.body)
-      : super(networkAddress);
+  M4LongFrame(int networkAddress, this.packetId, Uint8List body)
+      : super(networkAddress, body);
 
   /// Преобразует пакет в байты
   @override

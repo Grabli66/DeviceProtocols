@@ -1,8 +1,8 @@
 import 'package:binary_data/binary_data_lib.dart';
-import 'package:device_protocols/common/binary_channel_frame.dart';
+import 'package:device_protocols/common/binary_packet.dart';
 
 /// Базовый канальный пакет
-abstract class Frame extends BinaryChannelFrame {
+abstract class Frame extends BinaryPacket {
   // Начальный байт
   static const int START_BYTE = 0x02;
 
