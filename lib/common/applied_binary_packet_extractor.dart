@@ -3,7 +3,7 @@ import 'package:device_protocols/common/channel_binary_packet_extractor.dart';
 import 'package:meta/meta.dart';
 
 /// Извлекатель канальных бинарных пакетов
-abstract class AppliedBinaryPacketExtractor<TPacket extends BinaryPacket> {  
+abstract class AppliedBinaryPacketExtractor<TPacket> {  
   /// Читает бинарные данные
   @protected
   final ChannelBinaryPacketExtractor<BinaryPacket> channelExtractor;
