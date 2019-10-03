@@ -1,11 +1,57 @@
 /// Базовое исключение этой библиотеки
-abstract class ProtocolException implements Exception {}
+abstract class ProtocolException implements Exception {
+  /// Сообщение
+  final String message;
+
+  /// Конструктор
+  ProtocolException(this.message);
+
+  @override
+  String toString() {
+    return "$message";
+  }
+}
+
+/// Получен пакет неправильного формата
+class WrongPacketFormatException extends ProtocolException {
+  /// Конструктор
+  WrongPacketFormatException([String message]) : super(message);
+
+  @override
+  String toString() {
+    return "WrongPacketFormat. ${message ?? ""}";
+  }
+}
 
 /// Получен пакет который невозможно обработать. Например: не реализовано
-class UnsupportedPacketException implements ProtocolException {}
+class UnsupportedPacketException extends ProtocolException {
+  /// Конструктор
+  UnsupportedPacketException([String message]) : super(message);
+
+  @override
+  String toString() {
+    return "UnsupportedPacket. ${message ?? ""}";
+  }
+}
 
 /// Исключение когда CRC не сошлась
-class WrongCrcException implements ProtocolException {}
+class WrongCrcException extends ProtocolException {
+  /// Конструктор
+  WrongCrcException([String message]) : super(message);
+
+  @override
+  String toString() {
+    return "WrongCrcException. ${message ?? ""}";
+  }
+}
 
 /// Исключение когда пароль неправильного формата
-class WrongPasswordFormat implements ProtocolException {}
+class WrongPasswordFormat extends ProtocolException {
+  /// Конструктор
+  WrongPasswordFormat([String message]) : super(message);
+
+  @override
+  String toString() {
+    return "WrongPasswordFormat. ${message ?? ""}";
+  }
+}
