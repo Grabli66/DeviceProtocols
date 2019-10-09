@@ -1,8 +1,8 @@
 import 'package:binary_data/binary_data_lib.dart';
-import 'package:device_protocols/common/binary_packet.dart';
+import 'package:device_protocols/channel_protocols/iec1107_protocol/iec1107_packet.dart';
 
 /// Ответ на идентификацию
-class IdentResponse extends BinaryPacket {
+class IdentResponse extends IEC1107Packet {
   /// Три символа, информация об изготовителе
   final String manufacturer;
 

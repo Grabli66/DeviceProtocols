@@ -1,10 +1,10 @@
 import 'package:binary_data/binary_data_lib.dart';
 import 'package:device_protocols/channel_protocols/iec1107_protocol/crc_helper.dart';
+import 'package:device_protocols/channel_protocols/iec1107_protocol/iec1107_packet.dart';
 import 'package:device_protocols/channel_protocols/iec1107_protocol/special_bytes.dart';
-import 'package:device_protocols/common/binary_packet.dart';
 
-///
-class InfoResponse extends BinaryPacket {
+/// Ответ на информационных запрос
+class InfoResponse extends IEC1107Packet {
   /// Данные с информацией
   final String data;
 
@@ -37,6 +37,6 @@ class InfoResponse extends BinaryPacket {
     final crc = CrcHelper.calcBcc(binary);
     binary.writeUInt8(crc);
 
-    return null;
+    return binary;
   }
 }
