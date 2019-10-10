@@ -12,6 +12,17 @@ abstract class ProtocolException implements Exception {
   }
 }
 
+/// Ошибка неправильного аргумента(метода)
+class WrongArgumentException extends ProtocolException {
+  /// Конструктор
+  WrongArgumentException([String message]) : super(message);
+
+  @override
+  String toString() {
+    return "WrongArgumentException. ${message ?? ""}";
+  }
+}
+
 /// Получен пакет неправильного формата
 class WrongPacketFormatException extends ProtocolException {
   /// Конструктор
