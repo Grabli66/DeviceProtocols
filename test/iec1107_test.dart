@@ -1,4 +1,4 @@
-import 'package:device_protocols/channel_protocols/iec1107_protocol/requests/ident_request.dart';
+import 'package:device_protocols/channel_protocols/iec1107_protocol/requests/iec1107_ident_request.dart';
 import 'package:device_protocols/channel_protocols/iec1107_protocol/responses/ident_response.dart';
 import 'package:device_protocols/channel_protocols/iec1107_protocol/responses/info_response.dart';
 import 'package:test/test.dart';
@@ -6,8 +6,8 @@ import 'package:test/test.dart';
 void testIEC1107() {
   group('IEC1107 tests', () {
     test('Ident request test', () {
-      final req1 = IdentRequest("24");
-      final req2 = IdentRequest("231");
+      final req1 = IEC1107IdentRequest("24");
+      final req2 = IEC1107IdentRequest("231");
       expect(req1.toString(), "/?24!\r\n");
       expect(req2.toString(), "/?231!\r\n");
     });

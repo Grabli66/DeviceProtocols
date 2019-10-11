@@ -1,6 +1,10 @@
 import 'dart:convert';
 
 import 'package:device_protocols/channel_protocols/iec1107_protocol/handlers/iec1107_channel_protocol_handler.dart';
+import 'package:device_protocols/channel_protocols/iec1107_protocol/iec1107_speed.dart';
+import 'package:device_protocols/channel_protocols/iec1107_protocol/requests/extractors/mode_request_extractor.dart';
+import 'package:device_protocols/channel_protocols/iec1107_protocol/requests/extractors/start_session_request_extractor.dart';
+import 'package:device_protocols/channel_protocols/iec1107_protocol/requests/iec1107_mode_request.dart';
 import 'package:device_protocols/common/binary_transport_channel.dart';
 import 'package:device_protocols/common/exceptions.dart';
 
@@ -13,41 +17,21 @@ class IEC1107ServerChannelProtocolHandler
   /// Максимальный размер поля модели устройства
   static const MaxModelLength = 10;
 
-  /// Возможные скорости
-  static const PossibleSpeed = <String>{
-    "0",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I"
-  };
-
   /// Конструктор
   IEC1107ServerChannelProtocolHandler(BinaryTransportChannel transportChannel)
       : super(transportChannel);
 
   /// Читает пакет установки сессии и возвращает сетевой номер
   Future<String> readStartSession() async {
-    return null;
+    final request =
+        await StartSessionRequestExtractor(transportChannel.streamReader)
+            .read();
+    return request.address;
   }
 
   /// Читает режим работы: скорость, чтение/программирование
-  Future<String> readMode() async {
-    return null;
+  Future<IEC1107ModeRequest> readMode() async {
+    return await ModeRequestExtractor(transportChannel.streamReader).read();
   }
 
   /// Читает запрос режима программирования
@@ -55,14 +39,10 @@ class IEC1107ServerChannelProtocolHandler
     return null;
   }
 
-  /// Отправляет пакет идентификации: производитель, скорость работы, модель устройства
-  void sendIdent(String manufacturer, String speed, String model) {
+  /// Отправляет пакет: производитель, скорость работы, модель устройства
+  void sendIdent(String manufacturer, IEC1107Speed speed, String model) {
     if (manufacturer.length != ManufacturerLength) {
       throw WrongArgumentException("Manufacturer field must be 3 chars");
-    }
-
-    if (!PossibleSpeed.contains(speed)) {
-      throw WrongArgumentException("Unsupported speed");
     }
 
     if (model.length > MaxModelLength) {
