@@ -1,5 +1,5 @@
 /// Специальные символы протокола
-abstract class SpecialBytes {
+abstract class IEC1107SpecialBytes {
   /// Начала заголовка
   static const SOH = 0x01;
   /// Начало кадра данных

@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 import 'package:binary_data/binary_data_lib.dart';
+import 'package:device_protocols/channel_protocols/iec1107_protocol/iec1107_special_bytes.dart';
 import 'package:device_protocols/channel_protocols/iec1107_protocol/iec1107_speed.dart';
 import 'package:device_protocols/channel_protocols/iec1107_protocol/iec1107_work_mode.dart';
 import 'package:device_protocols/channel_protocols/iec1107_protocol/requests/iec1107_mode_request.dart';
-import 'package:device_protocols/channel_protocols/iec1107_protocol/special_bytes.dart';
 import 'package:device_protocols/common/channel_binary_packet_extractor.dart';
 import 'package:device_protocols/common/exceptions.dart';
 
@@ -18,7 +18,7 @@ class ModeRequestExtractor
   @override
   Future<IEC1107ModeRequest> read() async {
     final ack = await reader.readUInt8();
-    if (ack != SpecialBytes.ACK) {
+    if (ack != IEC1107SpecialBytes.ACK) {
       throw WrongPacketFormatException();
     }
 

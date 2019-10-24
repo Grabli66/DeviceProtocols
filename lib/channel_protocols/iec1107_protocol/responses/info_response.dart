@@ -1,7 +1,7 @@
 import 'package:binary_data/binary_data_lib.dart';
 import 'package:device_protocols/channel_protocols/iec1107_protocol/crc_helper.dart';
 import 'package:device_protocols/channel_protocols/iec1107_protocol/iec1107_packet.dart';
-import 'package:device_protocols/channel_protocols/iec1107_protocol/special_bytes.dart';
+import 'package:device_protocols/channel_protocols/iec1107_protocol/iec1107_special_bytes.dart';
 
 /// Ответ на информационных запрос
 class InfoResponse extends IEC1107Packet {
@@ -21,18 +21,18 @@ class InfoResponse extends IEC1107Packet {
   @override
   BinaryData toBytes() {
     final binary = BinaryData();
-    binary.writeUInt8(SpecialBytes.STX);
+    binary.writeUInt8(IEC1107SpecialBytes.STX);
     binary.writeString(data);
     if (isProgramm) {
       if (isPartial) {
-        binary.writeUInt8(SpecialBytes.EOT);
+        binary.writeUInt8(IEC1107SpecialBytes.EOT);
       } else {
-        binary.writeUInt8(SpecialBytes.ETX);
+        binary.writeUInt8(IEC1107SpecialBytes.ETX);
       }
     } else {
       binary.writeString("!");
       binary.writeCRLF();
-      binary.writeUInt8(SpecialBytes.ETX);      
+      binary.writeUInt8(IEC1107SpecialBytes.ETX);      
     }
     final crc = CrcHelper.calcBcc(binary);
     binary.writeUInt8(crc);
