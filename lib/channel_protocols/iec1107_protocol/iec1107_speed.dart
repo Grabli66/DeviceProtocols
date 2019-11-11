@@ -85,7 +85,28 @@ class IEC1107SpeedB extends IEC1107Speed {
 
   @override
   String toString() {
-    return super.toString();
+    switch (speedType) {
+      case IEC1107SpeedType.Baud600:
+        return "A";
+      case IEC1107SpeedType.Baud1200:
+        return "B";
+      case IEC1107SpeedType.Baud2400:
+        return "C";
+      case IEC1107SpeedType.Baud4800:
+        return "D";
+      case IEC1107SpeedType.Baud9600:
+        return "E";
+      case IEC1107SpeedType.Custom6:
+        return "F";
+      case IEC1107SpeedType.Custom7:
+        return "G";
+      case IEC1107SpeedType.Custom8:
+        return "H";
+      case IEC1107SpeedType.Custom9:
+        return "I";
+      default:
+        return null;
+    }
   }
 }
 
@@ -154,6 +175,29 @@ class IEC1107SpeedC extends IEC1107Speed {
 
   @override
   String toString() {
-    return super.toString();
+    switch (speedType) {
+      case IEC1107SpeedType.Baud300:
+        return "0";
+      case IEC1107SpeedType.Baud600:
+        return "1";
+      case IEC1107SpeedType.Baud1200:
+        return "2";
+      case IEC1107SpeedType.Baud2400:
+        return "3";
+      case IEC1107SpeedType.Baud4800:
+        return "4";
+      case IEC1107SpeedType.Baud9600:
+        return "5";
+      case IEC1107SpeedType.Custom6:
+        return "6";
+      case IEC1107SpeedType.Custom7:
+        return "7";
+      case IEC1107SpeedType.Custom8:
+        return "8";
+      case IEC1107SpeedType.Custom9:
+        return "9";
+      default:
+        return null;
+    }
   }
 }
