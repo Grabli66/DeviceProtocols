@@ -2,7 +2,7 @@ import 'package:binary_data/binary_data_lib.dart';
 import 'package:device_protocols/common/binary_packet.dart';
 
 /// Базовый канальный пакет
-abstract class Frame extends BinaryPacket {
+abstract class Rtu327Frame extends BinaryPacket {
   // Начальный байт
   static const int START_BYTE = 0x02;
 
@@ -10,7 +10,7 @@ abstract class Frame extends BinaryPacket {
   final int frameId;
 
   /// Конструктор
-  Frame(this.frameId);
+  Rtu327Frame(this.frameId);
 
   /// Преобразует пакет в байты
   @override

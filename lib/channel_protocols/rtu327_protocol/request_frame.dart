@@ -1,9 +1,9 @@
 import 'package:binary_data/binary_data_lib.dart';
 import 'package:device_protocols/channel_protocols/rtu327_protocol/crc_helper.dart';
-import 'package:device_protocols/channel_protocols/rtu327_protocol/frame.dart';
+import 'package:device_protocols/channel_protocols/rtu327_protocol/rtu327_frame.dart';
 import 'package:device_protocols/channel_protocols/rtu327_protocol/rtu327_password.dart';
 
-class RequestFrame extends Frame {
+class RequestFrame extends Rtu327Frame {
   /// Пароль RTU сервера STR<4>
   final Rtu327Password password;
 

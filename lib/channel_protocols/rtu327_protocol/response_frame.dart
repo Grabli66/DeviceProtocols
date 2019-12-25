@@ -1,9 +1,9 @@
 import 'package:binary_data/binary_data_lib.dart';
 import 'package:device_protocols/channel_protocols/rtu327_protocol/crc_helper.dart';
-import 'package:device_protocols/channel_protocols/rtu327_protocol/frame.dart';
+import 'package:device_protocols/channel_protocols/rtu327_protocol/rtu327_frame.dart';
 
 /// Фрэйм ответа
-class ResponseFrame extends Frame {
+class ResponseFrame extends Rtu327Frame {
   /// Длина фрейма без учёта данных: номер пакета + резерв1 + резерв2 + код ответа
   static const LengthWithoutData = 2 + 4 + 2 + 1;
 

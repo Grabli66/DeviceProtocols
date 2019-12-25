@@ -1,7 +1,7 @@
 import 'package:binary_data/binary_data_lib.dart';
 import 'package:device_protocols/channel_protocols/rtu327_protocol/crc_helper.dart';
-import 'package:device_protocols/channel_protocols/rtu327_protocol/frame.dart';
 import 'package:device_protocols/channel_protocols/rtu327_protocol/response_frame.dart';
+import 'package:device_protocols/channel_protocols/rtu327_protocol/rtu327_frame.dart';
 import 'package:device_protocols/common/channel_binary_packet_extractor.dart';
 import 'package:device_protocols/common/exceptions.dart';
 
@@ -13,7 +13,7 @@ class ResponseFrameExtractor extends ChannelBinaryPacketExtractor<ResponseFrame>
   /// Читает фрэйм с ответом
   Future<ResponseFrame> read() async {
     /// Читает пока не найдёт начальный символ
-    while (await reader.readUInt8() != Frame.START_BYTE) {}
+    while (await reader.readUInt8() != Rtu327Frame.START_BYTE) {}
 
     // Длина только данных фрейма
     final len = await reader.readUInt16() - ResponseFrame.LengthWithoutData;
