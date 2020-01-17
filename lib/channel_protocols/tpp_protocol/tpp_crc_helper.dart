@@ -24,9 +24,9 @@ class TppCrcHelper {
 
   /// Считает CRC16 начиная с [pos] на определённую длинну [len]
   static int calcCrc(BinaryData binary, int pos, int len) {
-    binary.toEnd();
     var res = 0;
-    for (var b in binary) {
+    for (var i = pos; i < pos + len; i++) {
+      var b = binary.getUInt8(i);
       res = ((res << 4) ^ _crcTable[((b ^ res) >> 4) & 0x0F]) & 0xFF;
       res = ((res << 4) ^ _crcTable[(((b << 4) ^ res) >> 4) & 0x0F]) & 0xFF;
     }

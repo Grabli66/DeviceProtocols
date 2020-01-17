@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:binary_data/binary_data_lib.dart';
+import 'package:device_protocols/channel_protocols/usd204_protocol/usd204_crc_helper.dart';
 import 'package:device_protocols/channel_protocols/usd204_protocol/usd204_frame_type.dart';
 import 'package:device_protocols/common/binary_packet.dart';
 
@@ -38,8 +39,12 @@ abstract class Usd204Frame extends BinaryPacket {
     res.writeUInt16(count);
     // CRC
 
+    final dataPack = BinaryData.fromList(data);
+    final crc = Usd204CrcHelper.calcCrc(dataPack, 0, dataPack.length);
+    res.writeUInt8(crc);
+
     if (data != null) {
-      res.writeList(data);
+      res.writeBinaryData(dataPack);
     }
 
     return res;
