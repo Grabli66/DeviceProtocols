@@ -5,7 +5,7 @@ import 'package:device_protocols/channel_protocols/usd204_protocol/usd204_crc_he
 import 'package:device_protocols/channel_protocols/usd204_protocol/usd204_frame_type.dart';
 import 'package:device_protocols/common/binary_packet.dart';
 
-/// Базовый канальный пакет
+/// Базовый канальный пакет протокола УСД-2.04
 abstract class Usd204Frame extends BinaryPacket {
   /// Начальные байты пакета
   static const StartBytes = [0x7E, 0x7E, 0x7E, 0x7E, 0x7E, 0x7E, 0x7E, 0x7E];

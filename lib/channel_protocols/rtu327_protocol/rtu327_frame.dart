@@ -1,7 +1,7 @@
 import 'package:binary_data/binary_data_lib.dart';
 import 'package:device_protocols/common/binary_packet.dart';
 
-/// Базовый канальный пакет
+/// Базовый канальный пакет протокола RTU-327
 abstract class Rtu327Frame extends BinaryPacket {
   // Начальный байт
   static const int START_BYTE = 0x02;
