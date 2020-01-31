@@ -1,9 +1,9 @@
 import 'package:binary_data/binary_data.dart';
 
-/// Утилита для работы с CRC
-class CrcHelper {
-  /// Таблица расчёта CRC
-  static const tableCrc = [
+/// Утилита для расчёта CRC
+class Rtu325CrcHelper {
+  /// Таблица для расчёта CRC
+  static const crc1021Table = [
     0x0000,
     0x1021,
     0x2042,
@@ -263,15 +263,12 @@ class CrcHelper {
   ];
 
   /// Считает CRC
-  static int calculateRTU327CRC(BinaryData binary) {
-    var accumulator = 0xFFFF;
-    for (int i = 0; i < binary.length; i++) {
-      accumulator = (tableCrc[accumulator >> 8] ^
-              (accumulator << 8) ^
-              (binary.getUInt8(i) & 0xFF)) &
-          0xFFFF;
+  static int calcCrc(BinaryData binary) {
+    binary.toEnd();
+    int crc = 0;
+    for (var bt in binary) {
+      crc = ((crc1021Table[((crc >> 8) & 0xFF) ^ bt] ^ (crc << 8)) & 0xFFFF);
     }
-
-    return accumulator;
+    return crc;
   }
 }

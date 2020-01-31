@@ -1,5 +1,5 @@
 import 'package:binary_data/binary_data.dart';
-import 'package:device_protocols/channel_protocols/rtu327_protocol/crc_helper.dart';
+import 'package:device_protocols/channel_protocols/rtu327_protocol/rtu327_crc_helper.dart';
 import 'package:device_protocols/channel_protocols/rtu327_protocol/response_frame.dart';
 import 'package:device_protocols/channel_protocols/rtu327_protocol/rtu327_frame.dart';
 import 'package:device_protocols/common/channel_binary_packet_extractor.dart';
@@ -32,7 +32,7 @@ class ResponseFrameExtractor extends ChannelBinaryPacketExtractor<ResponseFrame>
     crcPack.writeUInt16(0);
     crcPack.writeUInt8(code);
     crcPack.writeList(data);
-    final calcCrc = CrcHelper.calculateRTU327CRC(crcPack);
+    final calcCrc = Rtu327CrcHelper.calculateRTU327CRC(crcPack);
     if (packCrc != calcCrc) {
       throw WrongCrcException();
     }
