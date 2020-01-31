@@ -1,4 +1,4 @@
-import 'package:binary_data/binary_data_lib.dart';
+import 'package:binary_data/binary_data.dart';
 import 'package:device_protocols/channel_protocols/tpp_protocol/myrmidon_frame.dart';
 import 'package:device_protocols/common/channel_binary_packet_extractor.dart';
 

@@ -1,4 +1,4 @@
-import 'package:binary_data/binary_data_lib.dart';
+import 'package:binary_data/binary_data.dart';
 import 'package:device_protocols/common/binary_packet.dart';
 
 /// Прикладной пакет в протоколе M4

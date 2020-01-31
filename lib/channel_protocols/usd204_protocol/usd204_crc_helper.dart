@@ -1,4 +1,4 @@
-import 'package:binary_data/binary_data_lib.dart';
+import 'package:binary_data/binary_data.dart';
 
 /// Утилита для работы с CRC
 class Usd204CrcHelper {

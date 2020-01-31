@@ -1,4 +1,4 @@
-import 'package:binary_data/binary_data_lib.dart';
+import 'package:binary_data/binary_data.dart';
 import 'package:device_protocols/applied_protocols/m4_protocol/data_tags/m4_data_tag.dart';
 
 /// Тэг с датой

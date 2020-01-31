@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:binary_data/binary_data_lib.dart';
+import 'package:binary_data/binary_data.dart';
 import 'package:device_protocols/applied_protocols/m4_protocol/data_tags/pnum_tag.dart';
 import 'package:device_protocols/applied_protocols/m4_protocol/requests/extractors/m4_request_extracted_data.dart';
 import 'package:device_protocols/applied_protocols/m4_protocol/requests/m4_parameter_read_request.dart';

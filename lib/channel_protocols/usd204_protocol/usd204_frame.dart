@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:binary_data/binary_data_lib.dart';
+import 'package:binary_data/binary_data.dart';
 import 'package:device_protocols/channel_protocols/usd204_protocol/usd204_crc_helper.dart';
 import 'package:device_protocols/channel_protocols/usd204_protocol/usd204_frame_type.dart';
 import 'package:device_protocols/common/binary_packet.dart';

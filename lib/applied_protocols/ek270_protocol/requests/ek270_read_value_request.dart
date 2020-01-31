@@ -1,4 +1,4 @@
-import 'package:binary_data/binary_data_lib.dart';
+import 'package:binary_data/binary_data.dart';
 import 'package:device_protocols/applied_protocols/ek270_protocol/ek270_packet.dart';
 import 'package:device_protocols/channel_protocols/iec1107_protocol/iec1107_command_type.dart';
 import 'package:device_protocols/channel_protocols/iec1107_protocol/requests/iec1107_program_request.dart';

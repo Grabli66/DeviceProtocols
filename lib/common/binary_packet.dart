@@ -1,4 +1,4 @@
-import 'package:binary_data/binary_data_lib.dart';
+import 'package:binary_data/binary_data.dart';
 
 /// Базовый бинарный пакет
 abstract class BinaryPacket {

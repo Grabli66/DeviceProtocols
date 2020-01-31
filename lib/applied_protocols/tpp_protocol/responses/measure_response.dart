@@ -1,4 +1,4 @@
-import 'package:binary_data/binary_data_lib.dart';
+import 'package:binary_data/binary_data.dart';
 import 'package:device_protocols/applied_protocols/tpp_protocol/common/device_option.dart';
 import 'package:device_protocols/applied_protocols/tpp_protocol/common/device_ui.dart';
 import 'package:device_protocols/applied_protocols/tpp_protocol/common/gen_opt_status.dart';

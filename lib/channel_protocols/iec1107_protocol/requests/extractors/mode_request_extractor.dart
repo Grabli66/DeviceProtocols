@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:binary_data/binary_data_lib.dart';
+import 'package:binary_data/binary_data.dart';
 import 'package:device_protocols/channel_protocols/iec1107_protocol/iec1107_special_bytes.dart';
 import 'package:device_protocols/channel_protocols/iec1107_protocol/iec1107_speed.dart';
 import 'package:device_protocols/channel_protocols/iec1107_protocol/iec1107_work_mode.dart';

@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:binary_data/binary_data_lib.dart';
+import 'package:binary_data/binary_data.dart';
 import 'package:device_protocols/channel_protocols/m4_protocol/m4_frame.dart';
 import 'package:device_protocols/channel_protocols/m4_protocol/m4_long_frame.dart';
 import 'package:device_protocols/channel_protocols/m4_protocol/m4_short_frame.dart';

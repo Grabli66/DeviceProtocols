@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:binary_data/binary_data_lib.dart';
+import 'package:binary_data/binary_data.dart';
 import 'package:device_protocols/applied_protocols/rtu327_protocol/responses/response.dart';
 
 /// Ответ на запрос максимального номера события журнала событий

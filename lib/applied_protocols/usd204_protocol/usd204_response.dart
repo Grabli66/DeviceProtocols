@@ -1,4 +1,4 @@
-import 'package:binary_data/binary_data_lib.dart';
+import 'package:binary_data/binary_data.dart';
 import 'package:device_protocols/applied_protocols/usd204_protocol/usd204_command_type.dart';
 import 'package:device_protocols/applied_protocols/usd204_protocol/usd204_packet.dart';
 import 'package:device_protocols/applied_protocols/usd204_protocol/usd204_response_code.dart';

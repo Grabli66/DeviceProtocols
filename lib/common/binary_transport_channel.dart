@@ -1,7 +1,6 @@
-import 'dart:async';
 import 'dart:typed_data';
 
-import 'package:binary_data/binary_data_lib.dart';
+import 'package:binary_data/binary_data.dart';
 
 /// Базовый канал для приёма/передачи бинарных данных
 abstract class BinaryTransportChannel {

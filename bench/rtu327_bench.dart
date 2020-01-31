@@ -1,4 +1,4 @@
-import 'package:binary_data/binary_data_lib.dart';
+import 'package:binary_data/binary_data.dart';
 import 'package:device_protocols/channel_protocols/rtu327_protocol/response_frame_extractor.dart';
 
 void main(List<String> args) async {

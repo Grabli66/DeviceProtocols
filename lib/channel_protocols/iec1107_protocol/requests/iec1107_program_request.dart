@@ -1,4 +1,4 @@
-import 'package:binary_data/binary_data_lib.dart';
+import 'package:binary_data/binary_data.dart';
 import 'package:device_protocols/channel_protocols/iec1107_protocol/crc_helper.dart';
 import 'package:device_protocols/channel_protocols/iec1107_protocol/iec1107_command_type.dart';
 import 'package:device_protocols/channel_protocols/iec1107_protocol/iec1107_packet.dart';
