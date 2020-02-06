@@ -1,6 +1,6 @@
 import 'package:binary_data/binary_data.dart';
-import 'package:device_protocols/applied_protocols/rtu327_protocol/requests/get_time_request.dart';
-import 'package:device_protocols/applied_protocols/rtu327_protocol/responses/get_time_response.dart';
+import 'package:device_protocols/applied_protocols/elster/rtu327_protocol/requests/get_time_request.dart';
+import 'package:device_protocols/applied_protocols/elster/rtu327_protocol/responses/get_time_response.dart';
 import 'package:device_protocols/channel_protocols/rtu327_protocol/request_frame.dart';
 import 'package:device_protocols/channel_protocols/rtu327_protocol/response_code.dart';
 import 'package:device_protocols/channel_protocols/rtu327_protocol/response_frame.dart';
