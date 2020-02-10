@@ -6,7 +6,7 @@ import 'package:device_protocols/channel_protocols/modbus_protocol/modbus_channe
 import 'package:device_protocols/common/modbus/modbus_function_code.dart';
 
 /// Канальный пакет протокола Modbus RTU
-class ModbusRtuFrame extends ModbusFrame {
+abstract class ModbusRtuFrame extends ModbusFrame {
   /// Сетевой адрес устройства к которому пакет
   final int networkAddress;
 
