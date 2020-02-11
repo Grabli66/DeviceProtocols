@@ -6,7 +6,7 @@ import 'package:device_protocols/channel_protocols/modbus_protocol/modbus_channe
 import 'package:device_protocols/common/modbus/modbus_function_code.dart';
 
 /// Канальный пакет протокола Modbus RTU
-abstract class ModbusRtuFrame extends ModbusFrame {
+class ModbusRtuFrame extends ModbusFrame {
   /// Сетевой адрес устройства к которому пакет
   final int networkAddress;
 
@@ -18,11 +18,12 @@ abstract class ModbusRtuFrame extends ModbusFrame {
   // Преобразует пакет в байты
   @override
   BinaryData toBytes() {
-    final res = BinaryData();
-    res.writeUInt8(networkAddress);
-    res.writeUInt8(functionCode.code);
-    res.writeList(payload);
-    // TODO: расчёт CRC
-    return res;
+    final binary = BinaryData();
+    binary.writeUInt8(networkAddress);
+    binary.writeUInt8(functionCode.code);
+    binary.writeList(payload);
+    ModbusRtuCrcHelper.calcCrc(binary, 0, binary.length - 1);
+
+    return binary;
   }
 }
